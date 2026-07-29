@@ -180,53 +180,115 @@ def filled(value: str | None) -> bool:
     return bool(value and value not in {"-", "—", "–", "", "нет", "не сдавал"})
 
 
+def sublinks(html: str, base: str, must_contain: str) -> list[dict]:
+    """Ссылки на отдельные конкурсы со страницы-оглавления.
+
+    cpk.msu.ru отдаёт по адресу раздела не таблицу, а перечень конкурсов
+    («Юриспруденция (обучение на договорной основе)» и прочие), и номера
+    заявлений лежат уже внутри них.
+    """
+    soup = BeautifulSoup(html, "lxml")
+    out, seen = [], set()
+    for a in soup.find_all("a", href=True):
+        href = urljoin(base, a["href"]).split("#")[0]
+        title = clean(a.get_text())
+        if len(title) < 5 or must_contain not in href:
+            continue
+        if href.rstrip("/") == base.split("#")[0].rstrip("/") or href in seen:
+            continue
+        seen.add(href)
+        out.append({"url": href, "title": title})
+    return out
+
+
+def search_deep(
+    base_url: str, needle: str, must_contain: str, max_pages: int = 40
+) -> tuple[list[dict] | None, str | None, dict]:
+    """Ищет строку по номеру на странице, а если та — оглавление, то внутри.
+
+    Возвращает (строки, ошибка, сведения о самой странице). Раздел в
+    найденной строке подменяется названием конкурса из ссылки: оно точнее
+    того, что удаётся вытащить из вёрстки вложенной страницы.
+    """
+    html, err = fetch(base_url)
+    if html is None:
+        return None, err, {}
+
+    soup = BeautifulSoup(html, "lxml")
+    text = soup.get_text(" ")
+    info = {
+        "title": clean(soup.title.get_text()) if soup.title else "",
+        "years_on_page": sorted(set(re.findall(r"\b(20[2-3]\d)\b", text))),
+        "page_hash": sha(re.sub(r"\s+", " ", text)),
+    }
+
+    rows = rows_containing(html, needle)
+    if rows:
+        info["depth"] = "страница раздела"
+        return rows, None, info
+
+    links = sublinks(html, base_url, must_contain)
+    info["competitions"] = len(links)
+    info["depth"] = "вложенные конкурсы"
+    found, checked, failed = [], 0, 0
+    for link in links[:max_pages]:
+        sub, sub_err = fetch(link["url"])
+        if sub is None:
+            failed += 1
+            continue
+        checked += 1
+        for row in rows_containing(sub, needle):
+            row["section"] = link["title"]
+            row["url"] = link["url"]
+            found.append(row)
+    info["checked"] = checked
+    info["unreachable"] = failed
+    return found, None, info
+
+
 # --------------------------------------------------------------------------
 # Пробы источников
 # --------------------------------------------------------------------------
 
 
 def probe_submitted() -> dict:
-    html, err = fetch(cfg.URL_SUBMITTED)
-    if html is None:
+    rows, err, info = search_deep(cfg.URL_SUBMITTED, cfg.NUM_SUBMITTED, "/submitted/")
+    if rows is None:
         return {"ok": False, "error": err}
-    rows = rows_containing(html, cfg.NUM_SUBMITTED)
     out = []
     for r in rows:
         awaited = find_awaited_value(r)
         out.append(
             {
                 "section": r["section"],
+                "url": r.get("url"),
                 "cells": r["cells"],
                 "labelled": labelled(r),
                 "dvi": awaited,
                 "dvi_filled": filled(awaited),
             }
         )
-    return {"ok": True, "found": len(out), "rows": out}
+    return {"ok": True, "found": len(out), "rows": out, **info}
 
 
 def probe_rating() -> dict:
-    html, err = fetch(cfg.URL_RATING)
-    if html is None:
+    rows, err, info = search_deep(cfg.URL_RATING, cfg.NUM_AIS, "/rating/")
+    if rows is None:
         return {"ok": False, "error": err}
-    soup = BeautifulSoup(html, "lxml")
-    text = soup.get_text(" ")
-    years = sorted(set(re.findall(r"\b(20[2-3]\d)\b", text)))
-    title = clean(soup.title.get_text()) if soup.title else ""
-    heads = [clean(h.get_text()) for h in soup.find_all(["h1", "h2"])][:6]
-    rows = rows_containing(html, cfg.NUM_AIS)
     return {
         "ok": True,
-        "title": title,
-        "headings": heads,
-        "years_on_page": years,
-        "year_expected_present": cfg.YEAR_EXPECTED in years,
+        "year_expected_present": cfg.YEAR_EXPECTED in info.get("years_on_page", []),
         "found": len(rows),
         "rows": [
-            {"section": r["section"], "cells": r["cells"], "labelled": labelled(r)}
+            {
+                "section": r["section"],
+                "url": r.get("url"),
+                "cells": r["cells"],
+                "labelled": labelled(r),
+            }
             for r in rows
         ],
-        "page_hash": sha(re.sub(r"\s+", " ", text)),
+        **info,
     }
 
 
@@ -530,11 +592,20 @@ def summary(key: str, snap: dict) -> str:
         ]
         return f"  {label}: строк {len(rows)}; " + "; ".join(bits)
     if key == "rating":
+        depth = snap.get("depth", "?")
+        extra = ""
+        if snap.get("competitions") is not None:
+            extra = (
+                f", конкурсов {snap.get('competitions')}, "
+                f"проверено {snap.get('checked')}"
+            )
+            if snap.get("unreachable"):
+                extra += f", НЕ ОТКРЫЛОСЬ {snap.get('unreachable')}"
         return (
             f"  {label}: годы {snap.get('years_on_page')}, "
             f"{cfg.YEAR_EXPECTED} "
-            f"{'ЕСТЬ' if snap.get('year_expected_present') else 'нет'}, "
-            f"строк по заявлению: {snap.get('found')}"
+            f"{'ЕСТЬ' if snap.get('year_expected_present') else 'нет'} "
+            f"({depth}{extra}), строк по заявлению: {snap.get('found')}"
         )
     if key == "news":
         return f"  {label}: новостей на странице {snap.get('count')}"

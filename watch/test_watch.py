@@ -211,6 +211,96 @@ def test_rating_year_switch():
     )
 
 
+def rating_index_html() -> str:
+    """Страница раздела на cpk — оглавление, а не таблица.
+
+    Воспроизводит то, что реально отдаёт cpk.msu.ru/rating/dep_15: заголовок
+    с годом и перечень конкурсов ссылками. Номера заявлений лежат внутри них,
+    поэтому поиск только по этой странице не находит ничего.
+    """
+    return """<html><head><title>Центральная приемная комиссия МГУ</title></head>
+      <body>
+      <h1>Конкурсные списки лиц, прошедших вступительные испытания в МГУ
+          имени М.В.Ломоносова в 2026 году по каждому конкурсу</h1>
+      <p>Юридический факультет</p>
+      <a href="/rating/dep_15/101">Международно-правовая</a>
+      <a href="/rating/dep_15/102">Международно-правовая (обучение на договорной основе)</a>
+      <a href="/rating/dep_15/103">Юриспруденция</a>
+      <a href="/rating/dep_15/104">Юриспруденция (обучение на договорной основе)</a>
+      <a href="/rating/dep_15/105">Юриспруденция (особая квота)</a>
+      <a href="/about">О приёмной комиссии</a>
+      </body></html>"""
+
+
+def competition_html(with_us: bool) -> str:
+    row = (
+        f"<tr><td>7</td><td>{cfg.NUM_AIS}</td><td>295</td><td>85</td><td>Нет</td></tr>"
+        if with_us
+        else ""
+    )
+    return f"""<html><body><h2>Конкурсный список</h2><table>
+      <tr><th>Место</th><th>Заявление</th><th>Сумма</th><th>ДВИ</th><th>Согласие</th></tr>
+      <tr><td>1</td><td>152102080001</td><td>320</td><td>95</td><td>Да</td></tr>
+      {row}</table></body></html>"""
+
+
+def test_index_traversal():
+    print("\nСтраница раздела — оглавление, а не таблица")
+    index = rating_index_html()
+
+    check("на оглавлении номера нет", len(w.rows_containing(index, cfg.NUM_AIS)), 0)
+
+    links = w.sublinks(index, cfg.URL_RATING, "/rating/")
+    check("собраны все конкурсы, посторонние ссылки отброшены", len(links), 5)
+    check_that(
+        "договорная «Юриспруденция» найдена",
+        any("Юриспруденция (обучение на договорной основе)" == l["title"] for l in links),
+        [l["title"] for l in links],
+    )
+    check_that(
+        "ссылка «О приёмной комиссии» не подхвачена",
+        all("О приёмной" not in l["title"] for l in links),
+    )
+
+    # Подменяем сеть: оглавление и пять конкурсов, наш номер — в договорной.
+    pages = {cfg.URL_RATING: index}
+    for n, title in [
+        (101, "Международно-правовая"),
+        (102, "Международно-правовая (обучение на договорной основе)"),
+        (103, "Юриспруденция"),
+        (104, "Юриспруденция (обучение на договорной основе)"),
+        (105, "Юриспруденция (особая квота)"),
+    ]:
+        pages[f"https://cpk.msu.ru/rating/dep_15/{n}"] = competition_html(n == 104)
+
+    real_fetch = w.fetch
+    w.fetch = lambda url, binary=False: (pages.get(url), None if url in pages else "404")
+    try:
+        snap = w.probe_rating()
+    finally:
+        w.fetch = real_fetch
+
+    check("2026 год распознан", snap["year_expected_present"], True)
+    check("обход дошёл до вложенных конкурсов", snap["depth"], "вложенные конкурсы")
+    check("проверены все пять конкурсов", snap["checked"], 5)
+    check("заявление найдено ровно один раз", snap["found"], 1)
+    check(
+        "конкурс назван по ссылке, а не по вёрстке",
+        snap["rows"][0]["section"],
+        "Юриспруденция (обучение на договорной основе)",
+    )
+    check_that(
+        "строка содержит балл ДВИ",
+        "85" in snap["rows"][0]["cells"],
+        snap["rows"][0]["cells"],
+    )
+    check_that(
+        "сохранена ссылка на конкурс",
+        snap["rows"][0]["url"].endswith("/104"),
+        snap["rows"][0].get("url"),
+    )
+
+
 def test_news_diff():
     print("\nГлавное событие №3: новость о договорах")
     from bs4 import BeautifulSoup
@@ -278,6 +368,7 @@ for t in (
     test_row_lookup,
     test_dvi_fill_event,
     test_rating_year_switch,
+    test_index_traversal,
     test_news_diff,
     test_dvi_pdf_guard,
     test_availability,

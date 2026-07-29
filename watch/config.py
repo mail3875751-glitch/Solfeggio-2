@@ -28,6 +28,10 @@ YEAR_EXPECTED = "2026"
 URL_SUBMITTED = "https://cpk.msu.ru/submitted/bachelor/dep_15"
 URL_RATING = "https://cpk.msu.ru/rating/dep_15"
 URL_NEWS = "https://www.law.msu.ru/news"
+
+# Отдельная страница юрфака про заключение договора. Объявление с порогом
+# баллов может появиться здесь раньше, чем в ленте новостей.
+URL_CONTRACT = "https://priem.law.msu.ru/contract"
 URL_DVI_PDF = (
     "https://www.law.msu.ru/uploads/dropzone/"
     "2_54115870970709686861784921851.pdf"

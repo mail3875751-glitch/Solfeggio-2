@@ -291,6 +291,21 @@ def probe_dvi_pdf() -> dict:
     }
 
 
+def probe_contract() -> dict:
+    """Страница юрфака про заключение договора.
+
+    Порог баллов («приглашаем заключать договор от 230 баллов») может
+    появиться здесь раньше, чем в ленте новостей, поэтому кроме хеша
+    вытаскиваем все упоминания баллов.
+    """
+    html, err = fetch(cfg.URL_CONTRACT)
+    if html is None:
+        return {"ok": False, "error": err}
+    text = re.sub(r"\s+", " ", BeautifulSoup(html, "lxml").get_text(" "))
+    scores = sorted(set(re.findall(r"(?:от\s*)?(\d{2,3})\s*балл", text, re.I)))
+    return {"ok": True, "sha": sha(text), "chars": len(text), "scores": scores}
+
+
 def probe_binary(url: str) -> dict:
     data, err = fetch(url, binary=True)
     if data is None:
@@ -310,6 +325,7 @@ PROBES = {
     "submitted": ("Список подавших документы", probe_submitted),
     "rating": ("Конкурсные списки", probe_rating),
     "news": ("Новости юрфака", probe_news),
+    "contract": ("Страница «Заключение договора»", probe_contract),
     "dvi_pdf": ("Ведомость ДВИ по обществознанию", probe_dvi_pdf),
     "schedule": ("График приёмной кампании", lambda: probe_binary(cfg.URL_SCHEDULE_PDF)),
     "kcp": ("План приёма (число мест)", lambda: probe_binary(cfg.URL_KCP_PDF)),
@@ -441,6 +457,16 @@ def describe(key: str, old: dict | None, new: dict) -> list[str]:
                 f"[{label}] ⚠ балл {new.get('score')} расходится с ожидаемым "
                 f"{cfg.SCORE_DVI_EXPECTED}"
             )
+
+    elif key == "contract":
+        if new.get("scores") != old.get("scores"):
+            msgs.append(
+                f"[{label}] ★★ изменились упоминания баллов: "
+                f"{old.get('scores')} → {new.get('scores')} — "
+                f"возможно, объявлен порог для договора"
+            )
+        elif new.get("sha") != old.get("sha"):
+            msgs.append(f"[{label}] страница изменилась, порог баллов прежний")
 
     else:  # schedule, kcp, passing — следим за фактом обновления файла
         if new.get("sha") != old.get("sha"):

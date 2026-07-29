@@ -1,0 +1,48 @@
+{
+ "updated": "30.07.2026 00:44 МСК",
+ "updated_iso": "2026-07-30T00:44:34+03:00",
+ "probes": {
+  "submitted": {
+   "ok": false,
+   "error": "ProxyError"
+  },
+  "rating": {
+   "ok": false,
+   "error": "ProxyError"
+  },
+  "news": {
+   "ok": false,
+   "error": "ProxyError"
+  },
+  "contract": {
+   "ok": false,
+   "error": "ProxyError"
+  },
+  "dvi_pdf": {
+   "ok": false,
+   "error": "ProxyError"
+  },
+  "schedule": {
+   "ok": false,
+   "error": "ProxyError"
+  },
+  "kcp": {
+   "ok": false,
+   "error": "ProxyError"
+  },
+  "passing": {
+   "ok": false,
+   "error": "ProxyError"
+  }
+ },
+ "failures": {
+  "submitted": 1,
+  "rating": 1,
+  "news": 1,
+  "contract": 1,
+  "dvi_pdf": 1,
+  "schedule": 1,
+  "kcp": 1,
+  "passing": 1
+ }
+}

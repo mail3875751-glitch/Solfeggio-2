@@ -1,6 +1,6 @@
 {
- "updated": "30.07.2026 00:44 МСК",
- "updated_iso": "2026-07-30T00:44:34+03:00",
+ "updated": "30.07.2026 11:09 МСК",
+ "updated_iso": "2026-07-30T11:09:38+03:00",
  "probes": {
   "submitted": {
    "ok": false,
@@ -36,13 +36,13 @@
   }
  },
  "failures": {
-  "submitted": 1,
-  "rating": 1,
-  "news": 1,
-  "contract": 1,
-  "dvi_pdf": 1,
-  "schedule": 1,
-  "kcp": 1,
-  "passing": 1
+  "submitted": 2,
+  "rating": 2,
+  "news": 2,
+  "contract": 2,
+  "dvi_pdf": 2,
+  "schedule": 2,
+  "kcp": 2,
+  "passing": 2
  }
 }

@@ -4,7 +4,7 @@
   <identification>
     <creator type="composer">Music21</creator>
     <encoding>
-      <encoding-date>2026-08-07</encoding-date>
+      <encoding-date>2026-08-08</encoding-date>
       <software>music21 v.10.5.0</software>
       <supports element="beam" type="yes" />
       <supports element="stem" type="yes" />
@@ -18,12 +18,12 @@
     </scaling>
   </defaults>
   <part-list>
-    <score-part id="P7ea4f54033ce0fd782fdb8210e6a0b17">
+    <score-part id="P6c3f0b9053eeebfb815592c298f4e5bc">
       <part-name />
     </score-part>
   </part-list>
   
-  <part id="P7ea4f54033ce0fd782fdb8210e6a0b17">
+  <part id="P6c3f0b9053eeebfb815592c298f4e5bc">
     
     <measure implicit="no" number="1">
       <attributes>
@@ -64,7 +64,7 @@
         <type>eighth</type>
         <notations>
           <technical>
-            <fingering alternate="no" substitution="no">4</fingering>
+            <fingering alternate="no" substitution="no">3</fingering>
           </technical>
         </notations>
       </note>
@@ -77,7 +77,7 @@
         <type>eighth</type>
         <notations>
           <technical>
-            <fingering alternate="no" substitution="no">3</fingering>
+            <fingering alternate="no" substitution="no">2</fingering>
           </technical>
         </notations>
       </note>
@@ -90,7 +90,7 @@
         <type>eighth</type>
         <notations>
           <technical>
-            <fingering alternate="no" substitution="no">2</fingering>
+            <fingering alternate="no" substitution="no">1</fingering>
           </technical>
         </notations>
       </note>
@@ -105,7 +105,7 @@
         <accidental>flat</accidental>
         <notations>
           <technical>
-            <fingering alternate="no" substitution="no">1</fingering>
+            <fingering alternate="no" substitution="no">2</fingering>
           </technical>
         </notations>
       </note>
@@ -118,7 +118,7 @@
         <type>eighth</type>
         <notations>
           <technical>
-            <fingering alternate="no" substitution="no">2</fingering>
+            <fingering alternate="no" substitution="no">1</fingering>
           </technical>
         </notations>
       </note>
@@ -131,7 +131,7 @@
         <type>eighth</type>
         <notations>
           <technical>
-            <fingering alternate="no" substitution="no">3</fingering>
+            <fingering alternate="no" substitution="no">2</fingering>
           </technical>
         </notations>
       </note>
@@ -144,7 +144,7 @@
         <type>eighth</type>
         <notations>
           <technical>
-            <fingering alternate="no" substitution="no">4</fingering>
+            <fingering alternate="no" substitution="no">3</fingering>
           </technical>
         </notations>
       </note>

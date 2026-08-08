@@ -4,7 +4,7 @@
   <identification>
     <creator type="composer">Music21</creator>
     <encoding>
-      <encoding-date>2026-08-07</encoding-date>
+      <encoding-date>2026-08-08</encoding-date>
       <software>music21 v.10.5.0</software>
       <supports element="beam" type="yes" />
       <supports element="stem" type="yes" />
@@ -18,12 +18,12 @@
     </scaling>
   </defaults>
   <part-list>
-    <score-part id="P632e9af465762ea3d6a0f7c46900c3cb">
+    <score-part id="Pb2c24a76b39bcbab9671f972e3b2e703">
       <part-name />
     </score-part>
   </part-list>
   
-  <part id="P632e9af465762ea3d6a0f7c46900c3cb">
+  <part id="Pb2c24a76b39bcbab9671f972e3b2e703">
     
     <measure implicit="no" number="1">
       <attributes>
@@ -49,11 +49,6 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <notations>
-          <technical>
-            <fingering alternate="no" substitution="no">5</fingering>
-          </technical>
-        </notations>
       </note>
       <note>
         <chord />
@@ -63,11 +58,6 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <notations>
-          <technical>
-            <fingering alternate="no" substitution="no">2</fingering>
-          </technical>
-        </notations>
       </note>
       <note>
         <pitch>
@@ -76,11 +66,6 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <notations>
-          <technical>
-            <fingering alternate="no" substitution="no">5</fingering>
-          </technical>
-        </notations>
       </note>
       <note>
         <chord />
@@ -90,11 +75,6 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <notations>
-          <technical>
-            <fingering alternate="no" substitution="no">1</fingering>
-          </technical>
-        </notations>
       </note>
       <note>
         <pitch>
@@ -103,11 +83,6 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <notations>
-          <technical>
-            <fingering alternate="no" substitution="no">5</fingering>
-          </technical>
-        </notations>
       </note>
       <note>
         <chord />
@@ -119,11 +94,6 @@
         <duration>5040</duration>
         <type>eighth</type>
         <accidental>flat</accidental>
-        <notations>
-          <technical>
-            <fingering alternate="no" substitution="no">1</fingering>
-          </technical>
-        </notations>
       </note>
       <note>
         <pitch>
@@ -132,11 +102,6 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <notations>
-          <technical>
-            <fingering alternate="no" substitution="no">5</fingering>
-          </technical>
-        </notations>
       </note>
       <note>
         <chord />
@@ -146,11 +111,6 @@
         </pitch>
         <duration>5040</duration>
         <type>eighth</type>
-        <notations>
-          <technical>
-            <fingering alternate="no" substitution="no">1</fingering>
-          </technical>
-        </notations>
       </note>
       <note>
         <pitch>

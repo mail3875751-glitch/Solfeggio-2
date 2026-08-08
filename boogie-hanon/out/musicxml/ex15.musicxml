@@ -4,7 +4,7 @@
   <identification>
     <creator type="composer">Music21</creator>
     <encoding>
-      <encoding-date>2026-08-07</encoding-date>
+      <encoding-date>2026-08-08</encoding-date>
       <software>music21 v.10.5.0</software>
       <supports element="beam" type="yes" />
       <supports element="stem" type="yes" />
@@ -18,12 +18,12 @@
     </scaling>
   </defaults>
   <part-list>
-    <part-group number="1" type="start"><group-symbol>brace</group-symbol><group-barline>yes</group-barline></part-group><score-part id="P1201058a779f4f926700e9bddc758407">
+    <part-group number="1" type="start"><group-symbol>brace</group-symbol><group-barline>yes</group-barline></part-group><score-part id="Pbe3b278295e50e41f291a4d68cc17afc">
       <part-name />
     </score-part>
   <part-group number="1" type="stop" /></part-list>
   
-  <part id="P1201058a779f4f926700e9bddc758407">
+  <part id="Pbe3b278295e50e41f291a4d68cc17afc">
     
     <measure implicit="no" number="1">
       <attributes>
@@ -52,11 +52,6 @@
         <type>quarter</type>
         <dot />
         <staff>1</staff>
-        <notations>
-          <technical>
-            <fingering alternate="no" substitution="no">1</fingering>
-          </technical>
-        </notations>
       </note>
       <note>
         <chord />
@@ -71,11 +66,6 @@
         <dot />
         <accidental>flat</accidental>
         <staff>1</staff>
-        <notations>
-          <technical>
-            <fingering alternate="no" substitution="no">3</fingering>
-          </technical>
-        </notations>
       </note>
       <note>
         <pitch>
@@ -144,11 +134,6 @@
         <voice>2</voice>
         <type>eighth</type>
         <staff>2</staff>
-        <notations>
-          <technical>
-            <fingering alternate="no" substitution="no">5</fingering>
-          </technical>
-        </notations>
       </note>
       <note>
         <chord />
@@ -160,11 +145,6 @@
         <voice>2</voice>
         <type>eighth</type>
         <staff>2</staff>
-        <notations>
-          <technical>
-            <fingering alternate="no" substitution="no">2</fingering>
-          </technical>
-        </notations>
       </note>
       <note>
         <pitch>
@@ -175,11 +155,6 @@
         <voice>2</voice>
         <type>eighth</type>
         <staff>2</staff>
-        <notations>
-          <technical>
-            <fingering alternate="no" substitution="no">5</fingering>
-          </technical>
-        </notations>
       </note>
       <note>
         <chord />
@@ -191,11 +166,6 @@
         <voice>2</voice>
         <type>eighth</type>
         <staff>2</staff>
-        <notations>
-          <technical>
-            <fingering alternate="no" substitution="no">1</fingering>
-          </technical>
-        </notations>
       </note>
       <note>
         <pitch>
@@ -206,11 +176,6 @@
         <voice>2</voice>
         <type>eighth</type>
         <staff>2</staff>
-        <notations>
-          <technical>
-            <fingering alternate="no" substitution="no">5</fingering>
-          </technical>
-        </notations>
       </note>
       <note>
         <chord />
@@ -224,11 +189,6 @@
         <type>eighth</type>
         <accidental>flat</accidental>
         <staff>2</staff>
-        <notations>
-          <technical>
-            <fingering alternate="no" substitution="no">1</fingering>
-          </technical>
-        </notations>
       </note>
       <note>
         <pitch>
@@ -239,11 +199,6 @@
         <voice>2</voice>
         <type>eighth</type>
         <staff>2</staff>
-        <notations>
-          <technical>
-            <fingering alternate="no" substitution="no">5</fingering>
-          </technical>
-        </notations>
       </note>
       <note>
         <chord />
@@ -255,11 +210,6 @@
         <voice>2</voice>
         <type>eighth</type>
         <staff>2</staff>
-        <notations>
-          <technical>
-            <fingering alternate="no" substitution="no">1</fingering>
-          </technical>
-        </notations>
       </note>
       <note>
         <pitch>
@@ -270,11 +220,6 @@
         <voice>2</voice>
         <type>eighth</type>
         <staff>2</staff>
-        <notations>
-          <technical>
-            <fingering alternate="no" substitution="no">5</fingering>
-          </technical>
-        </notations>
       </note>
       <note>
         <chord />
@@ -286,11 +231,6 @@
         <voice>2</voice>
         <type>eighth</type>
         <staff>2</staff>
-        <notations>
-          <technical>
-            <fingering alternate="no" substitution="no">2</fingering>
-          </technical>
-        </notations>
       </note>
       <note>
         <pitch>
@@ -301,11 +241,6 @@
         <voice>2</voice>
         <type>eighth</type>
         <staff>2</staff>
-        <notations>
-          <technical>
-            <fingering alternate="no" substitution="no">5</fingering>
-          </technical>
-        </notations>
       </note>
       <note>
         <chord />
@@ -317,11 +252,6 @@
         <voice>2</voice>
         <type>eighth</type>
         <staff>2</staff>
-        <notations>
-          <technical>
-            <fingering alternate="no" substitution="no">1</fingering>
-          </technical>
-        </notations>
       </note>
       <note>
         <pitch>
@@ -332,11 +262,6 @@
         <voice>2</voice>
         <type>eighth</type>
         <staff>2</staff>
-        <notations>
-          <technical>
-            <fingering alternate="no" substitution="no">5</fingering>
-          </technical>
-        </notations>
       </note>
       <note>
         <chord />
@@ -350,11 +275,6 @@
         <type>eighth</type>
         <accidental>flat</accidental>
         <staff>2</staff>
-        <notations>
-          <technical>
-            <fingering alternate="no" substitution="no">1</fingering>
-          </technical>
-        </notations>
       </note>
       <note>
         <pitch>
@@ -365,11 +285,6 @@
         <voice>2</voice>
         <type>eighth</type>
         <staff>2</staff>
-        <notations>
-          <technical>
-            <fingering alternate="no" substitution="no">5</fingering>
-          </technical>
-        </notations>
       </note>
       <note>
         <chord />
@@ -381,11 +296,6 @@
         <voice>2</voice>
         <type>eighth</type>
         <staff>2</staff>
-        <notations>
-          <technical>
-            <fingering alternate="no" substitution="no">1</fingering>
-          </technical>
-        </notations>
       </note>
     </measure>
     

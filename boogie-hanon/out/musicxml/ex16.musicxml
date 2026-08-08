@@ -4,7 +4,7 @@
   <identification>
     <creator type="composer">Music21</creator>
     <encoding>
-      <encoding-date>2026-08-07</encoding-date>
+      <encoding-date>2026-08-08</encoding-date>
       <software>music21 v.10.5.0</software>
       <supports element="beam" type="yes" />
       <supports element="stem" type="yes" />
@@ -18,12 +18,12 @@
     </scaling>
   </defaults>
   <part-list>
-    <part-group number="1" type="start"><group-symbol>brace</group-symbol><group-barline>yes</group-barline></part-group><score-part id="Pcae0987df458480e6b092149ad4abea7">
+    <part-group number="1" type="start"><group-symbol>brace</group-symbol><group-barline>yes</group-barline></part-group><score-part id="P86800841f851d7261434c55e65ee198e">
       <part-name />
     </score-part>
   <part-group number="1" type="stop" /></part-list>
   
-  <part id="Pcae0987df458480e6b092149ad4abea7">
+  <part id="P86800841f851d7261434c55e65ee198e">
     
     <measure implicit="no" number="1">
       <attributes>
@@ -60,11 +60,6 @@
         <type>eighth</type>
         <accidental>flat</accidental>
         <staff>1</staff>
-        <notations>
-          <technical>
-            <fingering alternate="no" substitution="no">1</fingering>
-          </technical>
-        </notations>
       </note>
       <note>
         <chord />
@@ -76,11 +71,6 @@
         <voice>1</voice>
         <type>eighth</type>
         <staff>1</staff>
-        <notations>
-          <technical>
-            <fingering alternate="no" substitution="no">3</fingering>
-          </technical>
-        </notations>
       </note>
       <note>
         <rest />
@@ -100,11 +90,6 @@
         <type>eighth</type>
         <accidental>flat</accidental>
         <staff>1</staff>
-        <notations>
-          <technical>
-            <fingering alternate="no" substitution="no">1</fingering>
-          </technical>
-        </notations>
       </note>
       <note>
         <chord />
@@ -116,11 +101,6 @@
         <voice>1</voice>
         <type>eighth</type>
         <staff>1</staff>
-        <notations>
-          <technical>
-            <fingering alternate="no" substitution="no">3</fingering>
-          </technical>
-        </notations>
       </note>
       <note>
         <rest />
@@ -140,11 +120,6 @@
         <type>eighth</type>
         <accidental>natural</accidental>
         <staff>1</staff>
-        <notations>
-          <technical>
-            <fingering alternate="no" substitution="no">1</fingering>
-          </technical>
-        </notations>
       </note>
       <note>
         <chord />
@@ -156,11 +131,6 @@
         <voice>1</voice>
         <type>eighth</type>
         <staff>1</staff>
-        <notations>
-          <technical>
-            <fingering alternate="no" substitution="no">3</fingering>
-          </technical>
-        </notations>
       </note>
       <note>
         <rest />
@@ -178,11 +148,6 @@
         <voice>1</voice>
         <type>eighth</type>
         <staff>1</staff>
-        <notations>
-          <technical>
-            <fingering alternate="no" substitution="no">1</fingering>
-          </technical>
-        </notations>
       </note>
       <note>
         <chord />
@@ -194,11 +159,6 @@
         <voice>1</voice>
         <type>eighth</type>
         <staff>1</staff>
-        <notations>
-          <technical>
-            <fingering alternate="no" substitution="no">3</fingering>
-          </technical>
-        </notations>
       </note>
       <backup>
         <duration>40320</duration>

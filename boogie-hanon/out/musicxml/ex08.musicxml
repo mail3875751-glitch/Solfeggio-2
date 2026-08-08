@@ -4,7 +4,7 @@
   <identification>
     <creator type="composer">Music21</creator>
     <encoding>
-      <encoding-date>2026-08-07</encoding-date>
+      <encoding-date>2026-08-08</encoding-date>
       <software>music21 v.10.5.0</software>
       <supports element="beam" type="yes" />
       <supports element="stem" type="yes" />
@@ -18,12 +18,12 @@
     </scaling>
   </defaults>
   <part-list>
-    <score-part id="P11b278a960dc4421373d7182e6fb9250">
+    <score-part id="P1c30a2190741d49b8d1efa9b2204a1ac">
       <part-name />
     </score-part>
   </part-list>
   
-  <part id="P11b278a960dc4421373d7182e6fb9250">
+  <part id="P1c30a2190741d49b8d1efa9b2204a1ac">
     
     <measure implicit="no" number="1">
       <attributes>
@@ -50,11 +50,6 @@
         <duration>15120</duration>
         <type>quarter</type>
         <dot />
-        <notations>
-          <technical>
-            <fingering alternate="no" substitution="no">5</fingering>
-          </technical>
-        </notations>
       </note>
       <note>
         <chord />
@@ -65,11 +60,6 @@
         <duration>15120</duration>
         <type>quarter</type>
         <dot />
-        <notations>
-          <technical>
-            <fingering alternate="no" substitution="no">2</fingering>
-          </technical>
-        </notations>
       </note>
       <note>
         <pitch>
@@ -79,11 +69,6 @@
         <duration>15120</duration>
         <type>quarter</type>
         <dot />
-        <notations>
-          <technical>
-            <fingering alternate="no" substitution="no">5</fingering>
-          </technical>
-        </notations>
       </note>
       <note>
         <chord />
@@ -94,11 +79,6 @@
         <duration>15120</duration>
         <type>quarter</type>
         <dot />
-        <notations>
-          <technical>
-            <fingering alternate="no" substitution="no">2</fingering>
-          </technical>
-        </notations>
       </note>
       <note>
         <pitch>
@@ -107,11 +87,6 @@
         </pitch>
         <duration>10080</duration>
         <type>quarter</type>
-        <notations>
-          <technical>
-            <fingering alternate="no" substitution="no">5</fingering>
-          </technical>
-        </notations>
       </note>
       <note>
         <chord />
@@ -121,11 +96,6 @@
         </pitch>
         <duration>10080</duration>
         <type>quarter</type>
-        <notations>
-          <technical>
-            <fingering alternate="no" substitution="no">1</fingering>
-          </technical>
-        </notations>
       </note>
     </measure>
     

@@ -4,7 +4,7 @@
   <identification>
     <creator type="composer">Music21</creator>
     <encoding>
-      <encoding-date>2026-08-07</encoding-date>
+      <encoding-date>2026-08-08</encoding-date>
       <software>music21 v.10.5.0</software>
       <supports element="beam" type="yes" />
       <supports element="stem" type="yes" />
@@ -18,12 +18,12 @@
     </scaling>
   </defaults>
   <part-list>
-    <score-part id="P3aa48cccbf7e8004e423cdc3059303bd">
+    <score-part id="Pe05cfb2660471db112c7c051779ed756">
       <part-name />
     </score-part>
   </part-list>
   
-  <part id="P3aa48cccbf7e8004e423cdc3059303bd">
+  <part id="Pe05cfb2660471db112c7c051779ed756">
     
     <measure implicit="no" number="1">
       <attributes>
@@ -50,11 +50,6 @@
         <duration>7560</duration>
         <type>eighth</type>
         <dot />
-        <notations>
-          <technical>
-            <fingering alternate="no" substitution="no">5</fingering>
-          </technical>
-        </notations>
       </note>
       <note>
         <chord />
@@ -65,11 +60,6 @@
         <duration>7560</duration>
         <type>eighth</type>
         <dot />
-        <notations>
-          <technical>
-            <fingering alternate="no" substitution="no">2</fingering>
-          </technical>
-        </notations>
       </note>
       <note>
         <pitch>
@@ -78,11 +68,6 @@
         </pitch>
         <duration>2520</duration>
         <type>16th</type>
-        <notations>
-          <technical>
-            <fingering alternate="no" substitution="no">5</fingering>
-          </technical>
-        </notations>
       </note>
       <note>
         <chord />
@@ -92,11 +77,6 @@
         </pitch>
         <duration>2520</duration>
         <type>16th</type>
-        <notations>
-          <technical>
-            <fingering alternate="no" substitution="no">1</fingering>
-          </technical>
-        </notations>
       </note>
       <note>
         <pitch>
@@ -106,11 +86,6 @@
         <duration>7560</duration>
         <type>eighth</type>
         <dot />
-        <notations>
-          <technical>
-            <fingering alternate="no" substitution="no">5</fingering>
-          </technical>
-        </notations>
       </note>
       <note>
         <chord />
@@ -123,11 +98,6 @@
         <type>eighth</type>
         <dot />
         <accidental>flat</accidental>
-        <notations>
-          <technical>
-            <fingering alternate="no" substitution="no">1</fingering>
-          </technical>
-        </notations>
       </note>
       <note>
         <pitch>
@@ -136,11 +106,6 @@
         </pitch>
         <duration>2520</duration>
         <type>16th</type>
-        <notations>
-          <technical>
-            <fingering alternate="no" substitution="no">5</fingering>
-          </technical>
-        </notations>
       </note>
       <note>
         <chord />
@@ -150,11 +115,6 @@
         </pitch>
         <duration>2520</duration>
         <type>16th</type>
-        <notations>
-          <technical>
-            <fingering alternate="no" substitution="no">1</fingering>
-          </technical>
-        </notations>
       </note>
       <note>
         <pitch>
